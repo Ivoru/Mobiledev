@@ -1,6 +1,6 @@
 # project
 
-A new Flutter project.
+Mobile DEV PROJECT "BUDGET IT"
 
 ## Getting Started
 
