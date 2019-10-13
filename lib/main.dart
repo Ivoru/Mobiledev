@@ -3,6 +3,10 @@ import 'socicon_icons.dart';
 
 
 import './home.dart';
+import './reminder.dart';
+import './budget.dart';
+import './expense.dart';
+import './settings.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,12 +23,16 @@ class MyAppState extends State<MyApp>{
   int _selectedPage = 0;
   final _pageOptions = [
     HomePage(),
+    Reminderpage(),
+    Budgetpage(),
+    Expensepage(),
+    Settingspage(),
   ];
   
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Budget it',
       theme: ThemeData(
        
         primarySwatch: Colors.red,

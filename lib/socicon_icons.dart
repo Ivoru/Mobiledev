@@ -20,6 +20,10 @@
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 ///         Homepage:  https://design.google.com/icons/
+/// * Linearicons Free, Copyright (C) Linearicons.com
+///         Author:    Perxis
+///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+///         Homepage:  https://linearicons.com
 ///
 import 'package:flutter/widgets.dart';
 
@@ -32,6 +36,7 @@ class Socicon {
   static const IconData add = const IconData(0xe801, fontFamily: _kFontFam);
   static const IconData remove_circle = const IconData(0xe802, fontFamily: _kFontFam);
   static const IconData edit = const IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData alarm = const IconData(0xe858, fontFamily: _kFontFam);
   static const IconData money = const IconData(0xf0d6, fontFamily: _kFontFam);
   static const IconData bank = const IconData(0xf19c, fontFamily: _kFontFam);
 }
