@@ -17,79 +17,37 @@ class Expensepage extends StatelessWidget{
       return Container(
         child: new Column(
           children: <Widget>[
-            
-               new Container(
-                  
-                          margin: const EdgeInsets.all(10.0),
-                      height: 48.0,
-                      width:300.0,
-                      
-                      padding: const EdgeInsets.all(.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Expenses",
-                      style: TextStyle(fontSize: 30.0),
-                      textAlign: TextAlign.center,
-                    
-                        )
-                        ),
                         new Row(children: [
-
-                    new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.add),
-                      label:Text("Weekly"),
-                      onPressed: (){
-
-
-                      },
-
+                          Expanded(
+                            child:FlatButton.icon(
+                              icon:Icon(Socicon.add),
+                              label:Text("Weekly"),
+                              onPressed: (){
+                                },
                     ),
-                      
+                       ),
 
-                      
+                          Expanded(
+                            child:FlatButton.icon(
+                              icon:Icon(Icons.calendar_today),
+                              label:Text("Monthly"),
+                              onPressed: (){
+                              },
+                             ),
+                            ),
 
-                      ),
-
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.calendar_today),
-                      label:Text("Monthly"),
-                      
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.calendar_view_day),
-                      label:Text("Yearly"),
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      )
+                          Expanded(
+                              child:FlatButton.icon(
+                                icon:Icon(Icons.calendar_view_day),
+                                label:Text("Yearly"),
+                                onPressed: (){
+                                  },
+                                ),
+                              )
                         ]
-                        
-
-
-
             ),
           ],
         ),
       );
-
-
-
   }
 }

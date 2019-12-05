@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'socicon_icons.dart';
 
 class Settingspage extends StatelessWidget{
 

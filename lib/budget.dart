@@ -22,21 +22,16 @@ class Budgetpage extends StatelessWidget{
                     new Container(
                       margin: const EdgeInsets.all(10.0),
                       height: 60.0,
-                      width:300.0,
+                      width:333.0,
                       
                       padding: const EdgeInsets.all(5.0),
                       decoration:myBoxDecoration(),
-                      
-                      child: Text("Budget",
-                      style: TextStyle(fontSize: 30.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
-                        
+                     
                       ),
                   ],
                   ),
                   new Row(children: [
+              
                     new Container(
                     margin: const EdgeInsets.all(10.0),
                     height:40.0,
@@ -51,9 +46,7 @@ class Budgetpage extends StatelessWidget{
                       ),
                         
                       ),
-                       new Container(
-                         width:60,
-                         height:30,
+                      Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.edit),
                             label:Text(""),
@@ -63,9 +56,7 @@ class Budgetpage extends StatelessWidget{
                             },
                           )
                         ),
-                        new Container(
-                          width:60,
-                          height:30,
+                        Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.alarm),
                             label:Text(""),
@@ -94,9 +85,7 @@ class Budgetpage extends StatelessWidget{
                       ),
                         
                       ),
-                       new Container(
-                          width:60,
-                          height:30,
+                    Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.edit),
                             label:Text(""),
@@ -105,9 +94,7 @@ class Budgetpage extends StatelessWidget{
                             },
                           )
                         ),
-                        new Container(
-                           width:60,
-                           height:30,
+                      Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.alarm),
                             label:Text(""),
@@ -135,9 +122,7 @@ class Budgetpage extends StatelessWidget{
                       ),
                         
                       ),
-                       new Container(
-                          width:60,
-                          height:30,
+                       Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.edit),
                             label:Text(""),
@@ -146,9 +131,7 @@ class Budgetpage extends StatelessWidget{
                             },
                           )
                         ),
-                        new Container(
-                           width:60,
-                           height:30,
+                        Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.alarm),
                             label:Text(""),
@@ -165,16 +148,11 @@ class Budgetpage extends StatelessWidget{
                     new Container(
                       margin: const EdgeInsets.all(10.0),
                       height: 40.0,
-                      width:300.0,
+                      width:330.0,
                       
                       padding: const EdgeInsets.all(5.0),
                       decoration:myBoxDecoration(),
                       
-                      child: Text("ALERT IF EXPENSES EXCEED BUDGET",
-                      style: TextStyle(fontSize: 15.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
                         
                       ),
                   ],

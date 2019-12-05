@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'socicon_icons.dart';
 
 
 import './home.dart';
@@ -19,6 +18,7 @@ class MyApp extends StatefulWidget {
 
 }
 
+
 class MyAppState extends State<MyApp>{ 
   int _selectedPage = 0;
   final _pageOptions = [
@@ -28,6 +28,14 @@ class MyAppState extends State<MyApp>{
     Expensepage(),
     Settingspage(),
   ];
+
+  final _pageName = [
+    "Home",
+    "Reminder",
+    "Budget",
+    "Expenses",
+    "Settings"
+  ];
   
   @override
   Widget build(BuildContext context) {
@@ -35,20 +43,22 @@ class MyAppState extends State<MyApp>{
       title: 'Budget it',
       theme: ThemeData(
        
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blueGrey
       ),
-      home: Scaffold(appBar: AppBar(title: Text('Budget It'),),
-      body: _pageOptions[_selectedPage],
+      home: Scaffold(appBar: AppBar(title: Center(child: Text(_pageName[_selectedPage],))),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child: _pageOptions[_selectedPage],
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.red,
-        fixedColor: Colors.red,
-        currentIndex: _selectedPage,
-        onTap: (int index) {
-          setState(() {
-                        _selectedPage = index;
-
-          });
-        },
+            unselectedItemColor: Colors.black,
+            fixedColor: Colors.blueGrey,
+            currentIndex: _selectedPage,
+               onTap: (int index) {
+                setState(() {
+                  _selectedPage = index;
+                  });
+                },
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

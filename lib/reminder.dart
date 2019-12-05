@@ -26,23 +26,18 @@ class Reminderpage extends StatelessWidget{
                     new Container(
                       margin: const EdgeInsets.all(10.0),
                       height: 48.0,
-                      width:300.0,
+                      width:335.0,
                       
                       padding: const EdgeInsets.all(5.0),
                       decoration:myBoxDecoration(),
                       
-                      child: Text("Reminder",
-                      style: TextStyle(fontSize: 30.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
-                        
+                   
                       ),
                   ],
                   ),
                   new Row(children: [
-
-                    new Container(
+                    
+                   Expanded(
                       child:FlatButton.icon(
                       icon:Icon(Socicon.add),
                       label:Text("add"),
@@ -58,7 +53,7 @@ class Reminderpage extends StatelessWidget{
 
                       ),
 
-                      new Container(
+                     Expanded(
                       child:FlatButton.icon(
                       icon:Icon(Socicon.edit,size:30),
                       label:Text("edit"),
@@ -75,7 +70,7 @@ class Reminderpage extends StatelessWidget{
 
                       ),
 
-                      new Container(
+                      Expanded(
                       child:FlatButton.icon(
                       icon:Icon(Socicon.remove_circle),
                       label:Text("remove"),
@@ -108,7 +103,7 @@ class Reminderpage extends StatelessWidget{
                     
                         ),
                         ),
-                        new Container(
+                        Expanded(
                           child:FlatButton.icon(
                             icon:Icon(Socicon.alarm),
                             label:Text(""),

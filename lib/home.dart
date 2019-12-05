@@ -20,61 +20,46 @@ class HomePage extends StatelessWidget{
       return Container(
         child: new Column(
           children: <Widget>[
-            new Container(
+            
+            new Column(children:[ 
+                Text('ACCOUNT'          ,style: TextStyle(fontSize: 20.0)),
+                Text('CURRENT BALANCE :',style: TextStyle(fontSize: 20.0)),
+
               
               
-            ),
-            new Column(children:[
-                Text('ACCOUNT'),
-                Text('CURRENT BALANCE :'),
                 new Column(children:[
-                  new Row(children:[
-                   new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.money),
-                      label:Text("Cash"),
-                      onPressed: (){
+                  Row(children: <Widget>[
+                    
+                      Expanded(
+                          child:FlatButton.icon(
+                            icon:Icon(Socicon.money),
+                              label:Text("Cash"),
+                                onPressed: (){
 
-
-                      },
-
-                    ),
+                                },
+                            ),
+                        ),
                       
 
-                      
+                      Expanded(
+                        child:FlatButton.icon(
+                          icon:Icon(Socicon.bank),
+                            label:Text("Bank"),
+                              onPressed: (){ 
+                                
+                              },
+                          ),
+                        ),
 
-                      ),
+                       Expanded (
+                        child:FlatButton.icon(
+                         icon:Icon(Socicon.credit_card),
+                          label:Text("Card"),
+                            onPressed: (){
 
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.bank),
-                      label:Text("Bank"),
-                      
-                      onPressed: (){
+                            },
 
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-                       new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.credit_card),
-                      label:Text("Credit card"),
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
+                        ),
                       ),
 
                      
@@ -84,172 +69,111 @@ class HomePage extends StatelessWidget{
                 new Column(children:[
                   new Row(children: [
                     new Container(
-                      margin: const EdgeInsets.all(10.0),
-                      height: 48.0,
-                      width:300.0,
-                      
-                      padding: const EdgeInsets.all(5.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Transactions",
-                      style: TextStyle(fontSize: 30.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
-                        
-                      ),
-                  ],
-                  ),
-                  new Row(children: [
-
-                    new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.add),
-                      label:Text("add"),
-                      onPressed: (){
-
-
-                      },
-
+                            margin: const EdgeInsets.all(10.0),
+                            height: 48.0,
+                            width:330.0,padding: const EdgeInsets.all(.0),
+                            decoration:myBoxDecoration(),
+                            child: Text("Transactions",
+                                style: TextStyle(fontSize: 30.0),
+                                textAlign: TextAlign.center,
+                              ),
+                        ),
+                      ],
                     ),
-                      
+                    new Row(children: [
+                          Expanded(
+                            child:FlatButton.icon(
+                              icon:Icon(Socicon.add),
+                                label:Text("add"),
+                                  onPressed: (){
+                                  },
+                              ),
+                            ),
 
-                      
+                        Expanded(
+                          child:FlatButton.icon(
+                            icon:Icon(Socicon.edit,size:30),
+                              label:Text("edit"),
+                              onPressed: (){
+                              },
+                            ),
+                          ),
 
-                      ),
-
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.edit,size:30),
-                      label:Text("edit"),
-                      
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.remove_circle),
-                      label:Text("remove"),
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-                       
-                    ],
+                        Expanded(
+                          child:FlatButton.icon(
+                            icon:Icon(Socicon.remove_circle),
+                              label:Text("remove"),
+                              onPressed: (){
+                             },
+                           ),
+                          ),
+                     ],
                     ),
                   ],),
+
                   new Row(children: [
                         new Container(
-                          margin: const EdgeInsets.all(10.0),
-                      height: 48.0,
-                      width:300.0,
-                      
-                      padding: const EdgeInsets.all(.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("No transaction",
-                      style: TextStyle(fontSize: 30.0),
-                      textAlign: TextAlign.center,
-                    
-                        )
+                            margin: const EdgeInsets.all(10.0),
+                            height: 48.0,
+                            width:330.0,
+                            padding: const EdgeInsets.all(.0),
+                            decoration:myBoxDecoration(),
+                              child: Text("No transaction",
+                                style: TextStyle(fontSize: 30.0),
+                                textAlign: TextAlign.center,
+                                )
+                          ),
+                        ],
+                      ),
+                  ],),
+
+                  new Row(children: [
+                      Expanded(
+                        child:FlatButton.icon(
+                          icon:Icon(Socicon.add),
+                          label:Text("Weekly"),
+                            onPressed: (){
+                            },
+                          ),
+                      ),
+
+                      Expanded(
+                        child:FlatButton.icon(
+                          icon:Icon(Icons.calendar_today),
+                          label:Text("Monthly"),
+                            onPressed: (){
+                            }
+                          ),
                         ),
 
-
-                      ],
-                      ),
-                
-                ],),
-                new Container(
-                  
-                          margin: const EdgeInsets.all(10.0),
-                      height: 48.0,
-                      width:300.0,
-                      
-                      padding: const EdgeInsets.all(.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Expenses",
-                      style: TextStyle(fontSize: 30.0),
-                      textAlign: TextAlign.center,
-                    
-                        )
-                        ),
-                        new Row(children: [
-
-                    new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Socicon.add),
-                      label:Text("Weekly"),
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.calendar_today),
-                      label:Text("Monthly"),
-                      
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.calendar_view_day),
-                      label:Text("Yearly"),
-                      onPressed: (){
-
-
-                      },
-
-                    ),
-                      
-
-                      
-
-                      ),
-                       
+                      Expanded(
+                        child:FlatButton.icon(
+                          icon:Icon(Icons.calendar_view_day),
+                          label:Text("Yearly"),
+                          onPressed: (){
+                            },
+                          ),
+                        ),  
                     ],
-                    ),
-                
-                
-              ],
-
-        )
-      );
-
+                    ),   
+                    
+                    new Container(
+                  
+                      margin: const EdgeInsets.all(10.0),
+                      height: 48.0,
+                      width:332.0,
+                      
+                      padding: const EdgeInsets.all(.0),
+                      decoration:myBoxDecoration(),
+                      
+                      child: Text("Expenseed",
+                        style: TextStyle(fontSize: 30.0),
+                        textAlign: TextAlign.center,
+                        )
+                      )
+                ],
+              )
+            );
     }
 }
 
