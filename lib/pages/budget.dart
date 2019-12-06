@@ -19,15 +19,7 @@ class Budgetpage extends StatelessWidget{
           new Container(child:
             new Column(children:[
                   new Row(children: [
-                    new Container(
-                      margin: const EdgeInsets.all(10.0),
-                      height: 60.0,
-                      width:333.0,
-                      
-                      padding: const EdgeInsets.all(5.0),
-                      decoration:myBoxDecoration(),
-                     
-                      ),
+                 
                   ],
                   ),
                   new Row(children: [
@@ -143,23 +135,7 @@ class Budgetpage extends StatelessWidget{
 
 
 
-                  ],),
-                  new Row(children: [
-                    new Container(
-                      margin: const EdgeInsets.all(10.0),
-                      height: 40.0,
-                      width:330.0,
-                      
-                      padding: const EdgeInsets.all(5.0),
-                      decoration:myBoxDecoration(),
-                      
-                        
-                      ),
-                  ],
-                  ),
-                  
-                
-                ],),
+                  ],)],),
           )  
         ],
       ),
