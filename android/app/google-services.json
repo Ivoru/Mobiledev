@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "246121912360",
+    "firebase_url": "https://budgetit-e8577.firebaseio.com",
+    "project_id": "budgetit-e8577",
+    "storage_bucket": "budgetit-e8577.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246121912360:android:7454b13a821e9827c4bd1d",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246121912360-8ooq2s4b96qgv4n6qelp8vh60m3p60js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtcPxFoF1KH64TcJiC_7zjDdSXvxfxQEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246121912360-8ooq2s4b96qgv4n6qelp8vh60m3p60js.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
