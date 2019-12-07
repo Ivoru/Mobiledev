@@ -12,9 +12,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: new BoxDecoration(
-            image: new DecorationImage(image: new AssetImage("assets/budget diz.jpg"), fit: BoxFit.cover,),
-          ),
+        // decoration: new BoxDecoration(
+        //     image: new DecorationImage(image: new AssetImage("assets/budget diz.jpg"), fit: BoxFit.cover,),
+        //   ),
         padding: EdgeInsets.all(15.0),
         alignment: Alignment.center,
         child: SingleChildScrollView(
@@ -73,12 +73,12 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.pushReplacementNamed(context, landingRoute),
               ),
 
-              InkWell(
+              // InkWell(
                 
-                child: buildRegisterButton(),
-                onTap: () =>
-                    Navigator.pushReplacementNamed(context, homeRoute),
-              )
+              //   child: buildRegisterButton(),
+              //   onTap: () =>
+              //       Navigator.pushReplacementNamed(context, homeRoute),
+              // )
 
             ],
           ),
@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
          borderRadius: BorderRadius.circular(35.0),
-        color: Theme.of(context).accentColor,
+        color: Colors.cyan,
       ),
       child: Center(
         child: Text(
@@ -135,26 +135,26 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-   Widget buildRegisterButton() {
-    return Container(
-      margin: const EdgeInsets.only(top: 15.0),
-      padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
-      height: 50.0,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-         borderRadius: BorderRadius.circular(35.0),
-        color: Colors.cyan,
-      ),
-      child: Center(
-        child: Text(
-          "Register",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
+  //  Widget buildRegisterButton() {
+  //   return Container(
+  //     margin: const EdgeInsets.only(top: 15.0),
+  //     padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
+  //     height: 50.0,
+  //     width: MediaQuery.of(context).size.width,
+  //     decoration: BoxDecoration(
+  //        borderRadius: BorderRadius.circular(35.0),
+  //       color: Colors.cyan,
+  //     ),
+  //     // child: Center(
+  //     //   child: Text(
+  //     //     "Register",
+  //     //     style: TextStyle(
+  //     //       color: Colors.white,
+  //     //       fontSize: 20.0,
+  //     //       fontWeight: FontWeight.bold,
+  //     //     ),
+  //     //   ),
+  //     // ),
+  //   );
+  // }
 }

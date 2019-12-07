@@ -7,6 +7,7 @@ import 'package:project/pages/home.dart';
 import 'package:project/pages/reminder.dart';
 import 'package:project/pages/settings.dart';
 
+
 class LandingPage extends StatefulWidget {
   @override
   _LandingPage createState() => _LandingPage();
@@ -86,12 +87,11 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
               child: Row(
                 children: <Widget>[
                   Container(
-                    color: Colors.blue,
                     height: 35.0,
                     padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
+                      color: Colors.blueGrey,
                       borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.blue,
                     ),
                     child: Image.asset(
                       "assets/logo.png",
@@ -107,9 +107,6 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
                     ),
                   ),
                 ],
-              ),
-              decoration: BoxDecoration(
-                color: Colors.blue,
               ),
             ),
           ),
@@ -150,7 +147,7 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
 
   Widget bottomNavigationBuilder() {
     return BottomNavigationBar(
-      unselectedItemColor: Colors.black,
+    unselectedItemColor: Colors.black,
       fixedColor: Colors.blueGrey,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
