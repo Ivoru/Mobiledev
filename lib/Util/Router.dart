@@ -5,8 +5,10 @@ import 'package:project/pages/expense.dart';
 import 'package:project/pages/reminder.dart';
 import 'package:project/pages/settings.dart';
 
-import '../pages/Login.dart';
+import '../pages/Login_page.dart';
 import '../pages/home.dart';
+
+import 'package:project/pages/signup_page.dart';
 
 const String loginRoute = '/';
 const String landingRoute = '/landing';
@@ -15,6 +17,7 @@ const String reminderDetailsRoute = '/reminder';
 const String budgetDetailsRoute = '/budget';
 const String expenseDetailsRoute = '/expense';
 const String settingDetailsRoute = '/settings';
+const String signUpDetailsRoute = '/settings';
 
 class Router{
   
@@ -37,7 +40,9 @@ class Router{
          case expenseDetailsRoute:
              return createPageRoute(Expensepage()); 
           case settingDetailsRoute:
-             return createPageRoute(Settingspage());    
+             return createPageRoute(Settingspage());
+          case signUpDetailsRoute:
+             return createPageRoute(SignUpPage());          
          default:
              return null;
        }

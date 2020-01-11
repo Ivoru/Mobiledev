@@ -1,92 +1,58 @@
 import 'package:flutter/material.dart';
+import 'image_banner.dart';
 
 class Settingspage extends StatelessWidget{
 
-  BoxDecoration myBoxDecoration(){
-    return BoxDecoration(
-      border:Border.all(
-      color: Colors.black,
-      width:5.0
-    ),
-    );
-  }
    @override
   Widget build(BuildContext context) {
-    
-      return Container(
-        child: new Column(
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      body: setPage(context),
+    );
+  }
+
+   @override
+  Widget setPage(BuildContext context) {
+    return Stack(
           children: <Widget>[
-            
-               new Container(
-
-               ),
-                 new Row(children: <Widget>[
-
-                 
-                 new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.picture_in_picture),
-                      label:Text("Change BackGround"),
-                      onPressed: (){
-
-
-                      },
-
+            Container(
+              child: ImageBanner('assets/setting.jfif')
+            ),
+              Card(
+                margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 120.0),
+                color: Colors.white,
+                child: ListView(
+                  padding: EdgeInsets.only(left: 20, right: 18.0, top: 20.0, bottom: 0.0),
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text('SETTINGS', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                      ],
                     ),
-                      ),
-                ],),
-                new Row(children: <Widget>[
-                      new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.attach_money),
-                      label:Text("Change Currency"),
-                      onPressed: (){
-
-
-                      },
-
+                    Column(
+                      children: <Widget>[
+                        Text('\nChange Background', style: TextStyle(fontSize: 20.0),),
+                      ],
                     ),
-                      ),
-                ],),
-                new Row(children: <Widget>[
-                  new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.surround_sound),
-                      label:Text("Change Alert Sound"),
-                      onPressed: (){
-
-
-                      },
-
+                    Column(
+                      children: <Widget>[
+                        Text('\nChange Currency', style: TextStyle(fontSize: 20.0),),
+                      ],
                     ),
-                      ),
-                ],),  
-                new Row(children: <Widget>[
-                  new Container(
-                      child:FlatButton.icon(
-                      icon:Icon(Icons.question_answer),
-                      label:Text("About"),
-                      onPressed: (){
-
-
-                      },
-
+                    Column(
+                      children: <Widget>[
+                        Text('\nChange Alert Sound', style: TextStyle(fontSize: 20.0),),
+                      ],
                     ),
-                      ),
-                ],),      
-                  
-                          
-                        
-
-
-              
-          ],
-        ),
-      );
-
-
-
-
-
+                    Column(
+                      children: <Widget>[
+                        Text('\nAbout', style: TextStyle(fontSize: 20.0),),
+                      ],
+                    ),
+                  ],
+                )
+              ),
+        ]
+    );
   }
 }

@@ -1,148 +1,40 @@
 import 'package:flutter/material.dart';
 import 'socicon_icons.dart';
+import 'image_banner.dart';
 
 class Budgetpage extends StatelessWidget{
 
-  BoxDecoration myBoxDecoration(){
-    return BoxDecoration(
-      border:Border.all(
-      color: Colors.black,
-      width:5.0
-    ),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      body: setPage(context),
     );
   }
+
    @override
-  Widget build(BuildContext context) {
-    return Container(
-      child:new Column(
-        children: <Widget>[
-          new Container(child:
-            new Column(children:[
-                  new Row(children: [
-                 
+  Widget setPage(BuildContext context) {
+    return Stack(
+          children: <Widget>[
+            Container(
+              child: ImageBanner('assets/CoinPHoto.jpg')
+            ),
+              Card(
+                margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 120.0),
+                color: Colors.white,
+                child: ListView(
+                  padding: EdgeInsets.only(left: 20, right: 18.0, top: 20.0, bottom: 0.0),
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text('MY BUDGET', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                      ],
+                    ),
                   ],
-                  ),
-                  new Row(children: [
-              
-                    new Container(
-                    margin: const EdgeInsets.all(10.0),
-                    height:40.0,
-                    width:160,
-                    padding: const EdgeInsets.all(5.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Cash:",
-                      style: TextStyle(fontSize: 20.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
-                        
-                      ),
-                      Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.edit),
-                            label:Text(""),
-                            
-                            onPressed: (){
-
-                            },
-                          )
-                        ),
-                        Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.alarm),
-                            label:Text(""),
-                            onPressed: (){
-
-                            },
-                            
-                          )
-                        )
-
-
-
-                  ],),
-                  new Row(children: [
-                    new Container(
-                    margin: const EdgeInsets.all(10.0),
-                    height:40.0,
-                    width:160,
-                    padding: const EdgeInsets.all(5.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Bank:",
-                      style: TextStyle(fontSize: 20.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
-                        
-                      ),
-                    Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.edit),
-                            label:Text(""),
-                            onPressed: (){
-
-                            },
-                          )
-                        ),
-                      Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.alarm),
-                            label:Text(""),
-                            onPressed: (){
-
-                            },
-                          )
-                        )
-
-
-
-                  ],),
-                  new Row(children: [
-                    new Container(
-                    margin: const EdgeInsets.all(10.0),
-                    height:40.0,
-                    width:160,
-                    padding: const EdgeInsets.all(5.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Card:",
-                      style: TextStyle(fontSize: 20.0),
-                      textAlign: TextAlign.center,
-                    
-                      ),
-                        
-                      ),
-                       Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.edit),
-                            label:Text(""),
-                            onPressed: (){
-
-                            },
-                          )
-                        ),
-                        Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.alarm),
-                            label:Text(""),
-                            onPressed: (){
-
-                            },
-                          )
-                        )
-
-
-
-                  ],)],),
-          )  
-        ],
-      ),
+                )
+              ),
+        ]
     );
-    
-
-
   }
 
 }

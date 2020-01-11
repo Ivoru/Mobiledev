@@ -19,6 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  charts_flutter: ^0.8.1
   
 
     
@@ -28,6 +30,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  sqflite: any
+  path_provider: ^0.4.0
+  flutter_datetime_picker: ^1.2.6
+  
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +55,14 @@ flutter:
   assets:
     - assets/budget diz.jpg
     - assets/CoinPHoto.jpg
+    - assets/background.jpg
+    - assets/budget.png
+    - assets/budgeet.png
+    - assets/bg.jpg
+    - assets/reminder.png
+    - assets/reminder.jpg
+    - assets/setting.jfif
+    - assets/expenses.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

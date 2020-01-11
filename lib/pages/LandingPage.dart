@@ -52,7 +52,7 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+        backgroundColor: Colors.black,
         titleSpacing: 0.0,
         title: Padding(
           padding: const EdgeInsets.all(0.0),
@@ -94,7 +94,7 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Image.asset(
-                      "assets/logo.png",
+                      "assets/CoinPhoto.jpg",
                       width: 30,
                       height: 30,
                     ),
@@ -103,7 +103,7 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
                     padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Welcome User',
-                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      style: TextStyle(color: Colors.black, fontSize: 18.0),
                     ),
                   ),
                 ],
@@ -115,11 +115,6 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
               children: <Widget>[
                 Icon(Icons.list),
                 Container(
-                  padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-                  child: Text(
-                    'Logs',
-                    style: TextStyle(fontSize: 18.0),
-                  ),
                 ),
               ],
             ),
@@ -148,7 +143,7 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
   Widget bottomNavigationBuilder() {
     return BottomNavigationBar(
     unselectedItemColor: Colors.black,
-      fixedColor: Colors.blueGrey,
+      fixedColor: Colors.blue,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             icon: Icon(Icons.home),

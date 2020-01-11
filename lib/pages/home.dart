@@ -1,193 +1,56 @@
 import 'package:flutter/material.dart';
+import 'image_banner.dart';
 import "socicon_icons.dart";
 
 
-class HomePage extends StatelessWidget{
-
-
-   
-  BoxDecoration myBoxDecoration(){
-    return BoxDecoration(
-      border:Border.all(
-      color: Colors.black,
-      width:5.0
-    ),
+class HomePage extends StatelessWidget {
+   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      body: setPage(context),
     );
   }
 
-  @override
-    Widget build(BuildContext context) {
-      return Container(
-        child: new Column(
+   @override
+  Widget setPage(BuildContext context) {
+    return Stack(
           children: <Widget>[
-            
-            new Column(children:[ 
-                Text('ACCOUNT'          ,style: TextStyle(fontSize: 20.0)),
-                Text('CURRENT BALANCE :',style: TextStyle(fontSize: 20.0)),
+            Container(
+              child: ImageBanner('assets/bg.jpg')
+            ),
+              Card(
+                margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 120.0),
+                color: Colors.white,
+                child: ListView(
+                  padding: EdgeInsets.only(left: 20, right: 18.0, top: 20.0, bottom: 0.0),
+                  
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
 
-              
-              
-                new Column(children:[
-                  Row(children: <Widget>[
-                    
-                      Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.money),
-                              label:Text("Cash"),
-                                onPressed: (){
-
-                                },
-                            ),
+                        Text('CURRENT ACCOUNT', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                        
+                        ListTile(
+                          title: Text("Travel"),
+                          subtitle: Text("enjoy and have fun"),
+                          trailing: Icon(Icons.more_vert),
                         ),
-                      
-
-                      Expanded(
-                        child:FlatButton.icon(
-                          icon:Icon(Socicon.bank),
-                            label:Text("Bank"),
-                              onPressed: (){ 
-                                
-                              },
-                          ),
+                   
+                        ListTile(
+                          leading: Icon(Icons.landscape),
+                          title: Text("Travel"),
+                          subtitle: Text("enjoy and have fun"),
+                          trailing: Icon(Icons.more_vert),
                         ),
 
-                       Expanded (
-                        child:FlatButton.icon(
-                         icon:Icon(Socicon.credit_card),
-                          label:Text("Card"),
-                            onPressed: (){
-
-                            },
-
-                        ),
-                      ),
-
-                     
-                  ],
-                  )
-                ]),
-                new Column(children:[
-                  new Row(children: [
-                    new Container(
-                            margin: const EdgeInsets.all(10.0),
-                            height: 48.0,
-                            width:330.0,padding: const EdgeInsets.all(.0),
-                            decoration:myBoxDecoration(),
-                            child: Text("Transactions",
-                                style: TextStyle(fontSize: 30.0),
-                                textAlign: TextAlign.center,
-                              ),
-                        ),
                       ],
                     ),
-                    new Row(children: [
-                          Expanded(
-                            child:FlatButton.icon(
-                              icon:Icon(Socicon.add),
-                                label:Text("add"),
-                                  onPressed: (){
-                                  },
-                              ),
-                            ),
 
-                        Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.edit,size:30),
-                              label:Text("edit"),
-                              onPressed: (){
-                              },
-                            ),
-                          ),
-
-                        Expanded(
-                          child:FlatButton.icon(
-                            icon:Icon(Socicon.remove_circle),
-                              label:Text("remove"),
-                              onPressed: (){
-                             },
-                           ),
-                          ),
-                     ],
-                    ),
-                  ],),
-
-                  new Row(children: [
-                        new Container(
-                            margin: const EdgeInsets.all(10.0),
-                            height: 48.0,
-                            width:330.0,
-                            padding: const EdgeInsets.all(.0),
-                            decoration:myBoxDecoration(),
-                              child: Text("No transaction",
-                                style: TextStyle(fontSize: 30.0),
-                                textAlign: TextAlign.center,
-                                )
-                          ),
-                        ],
-                      ),
-                  ],),
-
-                  new Row(children: [
-                      Expanded(
-                        child:FlatButton.icon(
-                          icon:Icon(Socicon.add),
-                          label:Text("Weekly"),
-                            onPressed: (){
-                            },
-                          ),
-                      ),
-
-                      Expanded(
-                        child:FlatButton.icon(
-                          icon:Icon(Icons.calendar_today),
-                          label:Text("Monthly"),
-                            onPressed: (){
-                            }
-                          ),
-                        ),
-
-                      Expanded(
-                        child:FlatButton.icon(
-                          icon:Icon(Icons.calendar_view_day),
-                          label:Text("Yearly"),
-                          onPressed: (){
-                            },
-                          ),
-                        ),  
-                    ],
-                    ),   
-                    
-                    new Container(
-                  
-                      margin: const EdgeInsets.all(10.0),
-                      height: 48.0,
-                      width:332.0,
-                      
-                      padding: const EdgeInsets.all(.0),
-                      decoration:myBoxDecoration(),
-                      
-                      child: Text("Expenseed",
-                        style: TextStyle(fontSize: 30.0),
-                        textAlign: TextAlign.center,
-                        )
-                      )
-                ],
-              )
-            );
-    }
+                  ],
+                )
+              ),
+        ]
+    );
+  }
 }
-
-
-
-
-
-    
-              
-          
-          
-        
-
-        
-      
-      
-    

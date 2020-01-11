@@ -12,9 +12,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        // decoration: new BoxDecoration(
-        //     image: new DecorationImage(image: new AssetImage("assets/budget diz.jpg"), fit: BoxFit.cover,),
-        //   ),
+        decoration: new BoxDecoration(
+            image: new DecorationImage(image: new AssetImage("assets/budget diz.jpg"), fit: BoxFit.cover,),
+          ),
         padding: EdgeInsets.all(15.0),
         alignment: Alignment.center,
         child: SingleChildScrollView(
@@ -26,9 +26,9 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               
               Container(
-                padding: EdgeInsets.all(8.0),
-                child: Image.asset('assets/logo.gif'),
-              ),
+              //   padding: EdgeInsets.all(8.0),
+              //   child: Image.asset('assets/CoinPhoto.jpg'),
+              // ),
               Padding(
                 
                 padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 15.0),
@@ -70,14 +70,13 @@ class _LoginPageState extends State<LoginPage> {
               InkWell(
                 child: buildLoginButton(),
                 onTap: () =>
-                    Navigator.pushReplacementNamed(context, landingRoute),
+                    Navigator.pushReplacementNamed(context, RegisterPage()),
               ),
 
               // InkWell(
-                
               //   child: buildRegisterButton(),
               //   onTap: () =>
-              //       Navigator.pushReplacementNamed(context, homeRoute),
+              //       Navigator.pushReplacementNamed(context, landingRoute),
               // )
 
             ],
@@ -145,16 +144,16 @@ class _LoginPageState extends State<LoginPage> {
   //        borderRadius: BorderRadius.circular(35.0),
   //       color: Colors.cyan,
   //     ),
-  //     // child: Center(
-  //     //   child: Text(
-  //     //     "Register",
-  //     //     style: TextStyle(
-  //     //       color: Colors.white,
-  //     //       fontSize: 20.0,
-  //     //       fontWeight: FontWeight.bold,
-  //     //     ),
-  //     //   ),
-  //     // ),
+  //     child: Center(
+  //       child: Text(
+  //         "Register",
+  //         style: TextStyle(
+  //           color: Colors.white,
+  //           fontSize: 20.0,
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //     ),
   //   );
   // }
 }
