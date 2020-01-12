@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project/pages/whattopay.dart';
 import 'image_banner.dart';
 import 'package:flutter/widgets.dart';
 import "socicon_icons.dart";
@@ -11,6 +12,13 @@ class Reminderpage extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.grey,
       body: setPage(context),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => WhatToPay()));
+        },
+      child: Icon(Icons.add),
+      backgroundColor: Colors.black,
+      ),
     );
   }
 
@@ -32,9 +40,9 @@ class Reminderpage extends StatelessWidget{
                       children: <Widget>[
 
                          ListTile(
-                          leading: Icon(Icons.landscape),
-                          title: Text("Travel"),
-                          subtitle: Text("enjoy and have fun"),
+                          leading: Icon(Icons.border_color),
+                          title: Text("Things to remember"),
+                          subtitle: Text("Bills and Expenses"),
                           trailing: Icon(Icons.more_vert),
                         ),
                         

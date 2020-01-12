@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project/database/database_actions.dart';
+import 'addmyaccount.dart';
 import 'image_banner.dart';
 import "socicon_icons.dart";
 
@@ -8,7 +10,31 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
-      body: setPage(context),
+      body: FutureBuilder(
+                          future: DatabaseActions.getMyAccount(),
+                          builder: (context, snapshot) {
+                            final _myAccounts = snapshot.data;
+                            print(_myAccounts);
+                            if (snapshot.connectionState == ConnectionState.done) {
+                              return ListView.builder(
+                                itemBuilder: (context, index) {
+                                  return ListTile(
+                                    title: Text(_myAccounts[index]['item']),
+                                    subtitle: Text(_myAccounts[index]['price']),
+                                    trailing: Icon(Icons.more_vert),
+                                  );
+                                }, itemCount: _myAccounts.length,
+                              );
+                            }
+                          }
+                        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddList()));
+        },
+      child: Icon(Icons.add),
+      backgroundColor: Colors.black,
+      ),
     );
   }
 
@@ -29,28 +55,17 @@ class HomePage extends StatelessWidget {
                     Column(
                       children: <Widget>[
 
-                        Text('CURRENT ACCOUNT', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                        Text('MY ACCOUNT', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                       
                         
-                        ListTile(
-                          title: Text("Travel"),
-                          subtitle: Text("enjoy and have fun"),
-                          trailing: Icon(Icons.more_vert),
-                        ),
-                   
-                        ListTile(
-                          leading: Icon(Icons.landscape),
-                          title: Text("Travel"),
-                          subtitle: Text("enjoy and have fun"),
-                          trailing: Icon(Icons.more_vert),
-                        ),
-
+                        
                       ],
                     ),
 
                   ],
                 )
               ),
-        ]
+        ],
     );
   }
 }

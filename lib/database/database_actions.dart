@@ -15,23 +15,43 @@ class DatabaseActions {
 
       db = await openDatabase(
         // join(await getDatabasesPath(), 'dummy.db'),
-        join(await getDatabasesPath(), 'chris1.db'), 
+        join(await getDatabasesPath(), 'uidtry.db'), 
         version: 1,
         onCreate: (Database db, int version) async {
-            db.execute('''
-              create table Todos(
-                id integer primary key autoincrement,
-                title text not null,
-                isDone tinyint not null,
-                owner integer not null
-              );
-            '''
-            );
+            
                   db.execute('''
               create table Users(
                 id integer primary key autoincrement,
                 username text unique not null,
                 password text not null
+              );
+            ''');
+
+            db.execute('''
+              create table myAccount(
+                id integer primary key autoincrement,
+                item text unique not null,
+                price text not null,
+                quantity text not null,
+                uid integer not null
+              );
+            ''');
+
+            db.execute('''
+              create table reminder(
+                id integer primary key autoincrement,
+                bill text unique not null,
+                amount text not null
+                dueDate text not null
+              );
+            ''');
+
+            db.execute('''
+              create table myBudget(
+                id integer primary key autoincrement,
+                bill text unique not null,
+                amount text not null
+                dueDate text not null
               );
             ''');
           }
@@ -60,6 +80,20 @@ class DatabaseActions {
     static Future insertTodo(Map<String, dynamic> todo) async {
       await db.insert("Todos", todo);
     }
+
+    static Future insertMyAccount(Map<String, dynamic> myacc) async {
+      await db.insert("myAccount", myacc);
+    }
+
+    static Future<List<Map<String, dynamic>>> getMyAccount() async{
+      if (db == null) {
+        await open();
+      }
+      List<Map<String, dynamic>> list = await db.rawQuery("SELECT * FROM myAccount where uid=?" , [getCurrentId()]);
+      print(list);
+      return await db.rawQuery("SELECT * FROM myAccount where uid=?" , [getCurrentId()]);
+    }
+
 
     static Future updateTodo(Map<String, dynamic> todo) async {
       await db.update("Todos", 

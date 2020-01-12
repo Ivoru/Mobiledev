@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/pages/subscriberchart.dart';
 import 'package:project/pages/subscriberseries.dart';
+import 'addmyexpenses.dart';
 import 'socicon_icons.dart';
 import 'image_banner.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -34,6 +35,13 @@ class Expensepage extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.grey,
       body: setPage(context),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddMyExpenses()));
+        },
+      child: Icon(Icons.add),
+      backgroundColor: Colors.black,
+      ),
     );
   }
 

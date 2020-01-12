@@ -5,7 +5,6 @@ import 'package:project/pages/budget.dart';
 import 'package:project/pages/expense.dart';
 import 'package:project/pages/home.dart';
 import 'package:project/pages/reminder.dart';
-import 'package:project/pages/settings.dart';
 
 
 class LandingPage extends StatefulWidget {
@@ -38,7 +37,6 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
     {"page": Reminderpage(), "title": "Reminder"},
     {"page": Budgetpage(), "title": "Budget"},
     {"page": Expensepage(), "title": "Expense"},
-    {"page": Settingspage(), "title": "Settings"}
     
   ];
 
@@ -159,10 +157,6 @@ class _LandingPage extends State<LandingPage> with WidgetsBindingObserver {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.money_off),
-            title: Text("") 
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
             title: Text("") 
           ),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/addbudget.dart';
 import 'socicon_icons.dart';
 import 'image_banner.dart';
 
@@ -9,7 +10,14 @@ class Budgetpage extends StatelessWidget{
     return Scaffold(
       backgroundColor: Colors.grey,
       body: setPage(context),
-    );
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddExpenses())); 
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.black,
+              ),
+      );
   }
 
    @override
@@ -28,6 +36,13 @@ class Budgetpage extends StatelessWidget{
                     Column(
                       children: <Widget>[
                         Text('MY BUDGET', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+                        
+                         ListTile(
+                          title: Text("Travel"),
+                          subtitle: Text("enjoy and have fun"),
+                          trailing: Icon(Icons.more_vert),
+                        ),
+                    
                       ],
                     ),
                   ],

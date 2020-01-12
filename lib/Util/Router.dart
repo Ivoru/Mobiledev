@@ -3,7 +3,6 @@ import 'package:project/pages/LandingPage.dart';
 import 'package:project/pages/budget.dart';
 import 'package:project/pages/expense.dart';
 import 'package:project/pages/reminder.dart';
-import 'package:project/pages/settings.dart';
 
 import '../pages/Login_page.dart';
 import '../pages/home.dart';
@@ -39,8 +38,6 @@ class Router{
              return createPageRoute(Budgetpage()); 
          case expenseDetailsRoute:
              return createPageRoute(Expensepage()); 
-          case settingDetailsRoute:
-             return createPageRoute(Settingspage());
           case signUpDetailsRoute:
              return createPageRoute(SignUpPage());          
          default:
