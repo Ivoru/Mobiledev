@@ -15,7 +15,7 @@ class DatabaseActions {
 
       db = await openDatabase(
         // join(await getDatabasesPath(), 'dummy.db'),
-        join(await getDatabasesPath(), 'uidtry.db'), 
+        join(await getDatabasesPath(), 'jasdqwk.db'), 
         version: 1,
         onCreate: (Database db, int version) async {
             
@@ -42,16 +42,23 @@ class DatabaseActions {
                 id integer primary key autoincrement,
                 bill text unique not null,
                 amount text not null,
-                dueDate text not null
+                dueDate text not null,
+                uid integer not null
               );
             ''');
 
             db.execute('''
               create table myBudget(
                 id integer primary key autoincrement,
-                bill text unique not null,
-                amount text not null,
-                dueDate text not null
+                uid integer not null,
+                food text not null,
+                foodprice text not null,
+                accomodation text not null,
+                accomodationprice text not null,
+                fare text not null,
+                fareprice text not null,
+                personal text not null,
+                personalprice text not null
               );
             ''');
           }
@@ -70,28 +77,37 @@ class DatabaseActions {
       return _currentId;
     }
 
-    static Future<List<Map<String, dynamic>>> getTodos( int id) async{
-      if (db == null) {
-        await open();
-      }
-      return await db.rawQuery("SELECT * FROM Todos WHERE owner = ?", [id]);
-    }
-
-    static Future insertTodo(Map<String, dynamic> todo) async {
-      await db.insert("Todos", todo);
-    }
-
     static Future insertMyAccount(Map<String, dynamic> myacc) async {
       await db.insert("myAccount", myacc);
+    }
+
+    static Future insertReminder(Map<String, dynamic> myacc) async {
+      await db.insert("reminder", myacc);
+    }
+
+    static Future insertBudget(Map<String, dynamic> myacc) async {
+      await db.insert("myBudget", myacc);
     }
 
     static Future<List<Map<String, dynamic>>> getMyAccount() async{
       if (db == null) {
         await open();
       }
-      List<Map<String, dynamic>> list = await db.rawQuery("SELECT * FROM myAccount where uid=?" , [getCurrentId()]);
-      print(list);
       return await db.rawQuery("SELECT * FROM myAccount where uid=?" , [getCurrentId()]);
+    }
+
+    static Future<List<Map<String, dynamic>>> getMyReminder() async{
+      if (db == null) {
+        await open();
+      }
+      return await db.rawQuery("SELECT * FROM reminder where uid=?" , [getCurrentId()]);
+    }
+
+    static Future<List<Map<String, dynamic>>> getMyBudget() async{
+      if (db == null) {
+        await open();
+      }
+      return await db.rawQuery("SELECT * FROM myBudget where uid=?" , [getCurrentId()]);
     }
 
 
@@ -122,6 +138,30 @@ class DatabaseActions {
     static Future deleteTodo(int id) async {
       await db.delete(
         'Todos',
+        where: 'id = ?',
+        whereArgs: [id]
+      );
+    }
+
+    static Future deleteList(int id) async {
+      await db.delete(
+        'myAccount',
+        where: 'id = ?',
+        whereArgs: [id]
+      );
+    }
+
+    static Future deleteReminder(int id) async {
+      await db.delete(
+        'reminder',
+        where: 'id = ?',
+        whereArgs: [id]
+      );
+    }
+
+    static Future deleteBudget(int id) async {
+      await db.delete(
+        'myBudget',
         where: 'id = ?',
         whereArgs: [id]
       );

@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:project/database/database_actions.dart';
+import 'package:project/pages/LandingPage.dart';
 import 'addmyaccount.dart';
 import 'image_banner.dart';
-import "socicon_icons.dart";
 
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+
+}
+
+class _HomePageState extends State<HomePage> {
+
+  
+  Widget page;
+
    @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
-      body: setPage(context),
+      body: setPage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => AddList()));
@@ -22,7 +32,8 @@ class HomePage extends StatelessWidget {
   }
 
    @override
-  Widget setPage(BuildContext context) {
+  Widget setPage() {
+    BuildContext origContext = context;
     return Stack(
           children: <Widget>[
             Container(
@@ -40,19 +51,44 @@ class HomePage extends StatelessWidget {
                               return ListView.builder(
                                 itemBuilder: (context, index) {
                                   return ListTile(
-                                    leading: Icon(Icons.border_color),
+                                    leading: Icon(Icons.attach_money),
                                     title: Text(_myAccounts[index]['item']),
                                     subtitle: Text(_myAccounts[index]['price']),
-                                    trailing: Icon(Icons.more_vert),
-                                    onTap: () {
-                                      debugPrint("ListTile Tapped");
-                                    },
+                                    trailing: Icon(Icons.delete_forever),
+                                    onLongPress: () {
+                                     return showDialog(context: context,
+                                     barrierDismissible: false,
+                                     builder: (BuildContext context) {
+                                      return AlertDialog(
+                                      title: Text("Delete"),
+                                      content: Text("Are you sure?"),
+                                        actions: [
+                                          FlatButton(child:  Text("Yes"), 
+                                            onPressed: () async {
+                                              await DatabaseActions.deleteList(_myAccounts[index]['id']);
+                                              Future.delayed(Duration(seconds: 1), (){
+                                                Navigator.pop(context);
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                                                    return LandingPage();
+                                                  }));
+                                                }
+                                              );
+                                            }
+                                          ),
+                                          FlatButton(child: Text("No"),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          )
+                                        ],
+                                     );
+                                     });
+                                    }
                                    );
                                 }, itemCount: _myAccounts.length,
                               );
-                            }
-                            if (snapshot.hasError){
-                              return Text("SomethingWentWrong");
+                            } else {
+                               return Container();
                             }
                           }
                         ),

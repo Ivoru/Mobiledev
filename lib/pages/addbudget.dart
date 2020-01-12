@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project/database/database_actions.dart';
+import 'package:project/pages/LandingPage.dart';
+import 'package:project/pages/budget.dart';
 import 'package:project/pages/home.dart';
 import 'image_banner.dart';
 import 'package:flutter/widgets.dart';
@@ -14,11 +17,21 @@ class AddExpenses extends StatefulWidget{
 
 class _AddExpensesState extends State<AddExpenses>{
 
-  TextEditingController item = TextEditingController();
+  TextEditingController food = TextEditingController();
 
-  TextEditingController price = TextEditingController();
+  TextEditingController foodprice = TextEditingController();
+  
+  TextEditingController accomodation = TextEditingController();
 
-  TextEditingController quantity = TextEditingController();
+  TextEditingController accomodationprice = TextEditingController();
+  
+  TextEditingController fare = TextEditingController();
+
+  TextEditingController fareprice = TextEditingController();
+  
+  TextEditingController personal = TextEditingController();
+
+  TextEditingController personalprice = TextEditingController();
 
 
   String id;
@@ -64,7 +77,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.restaurant),
                 labelText: 'Food'
             ),
-            controller: item,
+            controller: food,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -79,7 +92,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: foodprice
             ),
             SizedBox(height: 10.0,),
             TextFormField(
@@ -94,7 +107,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.home),
                 labelText: 'Accomodation'
             ),
-            controller: item,
+            controller: accomodation,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -109,7 +122,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: accomodationprice
             ),
             SizedBox(height: 10.0,),
             TextFormField(
@@ -124,7 +137,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.control_point),
                 labelText: 'Fare'
             ),
-            controller: item,
+            controller: fare,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -139,7 +152,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: fareprice
             ),
             SizedBox(height: 10.0,),
             TextFormField(
@@ -154,7 +167,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.control_point),
                 labelText: 'Personal Expenses'
             ),
-            controller: item,
+            controller: personal,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -169,7 +182,7 @@ class _AddExpensesState extends State<AddExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: personalprice
             ),
 
             SizedBox(height: 10.0,),
@@ -179,7 +192,22 @@ class _AddExpensesState extends State<AddExpenses>{
               children: <Widget>[
                 RaisedButton(
                   color: Colors.green,
-                  onPressed: () {
+                  onPressed: () async{
+                    await DatabaseActions.insertBudget({
+                        'food': food.text, 
+                        'foodprice': foodprice.text,
+                        // 'accomodation': accomodation.text,
+                        // 'accomodationprice': accomodationprice.text,
+                        // 'fare': fare.text,
+                        // 'fareprice': fareprice.text,
+                        // 'personal': personal.text,
+                        // 'personalprice': personalprice.text,
+                        'uid': DatabaseActions.getCurrentId()
+                        });
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return Budgetpage();
+                        }));
                   },
                   child: Text(
                     'Add', style: TextStyle(backgroundColor: Colors.green,color: Colors.white

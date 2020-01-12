@@ -1,24 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/database/database_actions.dart';
-import 'LandingPage.dart';
+import 'package:project/pages/reminder.dart';
 import 'package:flutter/widgets.dart';
 
-class AddList extends StatefulWidget{
+class AddReminder extends StatefulWidget{
   // AddList({Key key, this.user, this.brew,}) : super(key: key);
   // // final FirebaseUser user;
   // // final Prod brew;
 
-  _AddListState createState() => _AddListState();
+  _AddReminderState createState() => _AddReminderState();
 }
 
-class _AddListState extends State<AddList>{
+class _AddReminderState extends State<AddReminder>{
 
-  TextEditingController item = TextEditingController();
+  TextEditingController bill = TextEditingController();
 
-  TextEditingController price = TextEditingController();
+  TextEditingController amount = TextEditingController();
 
-  TextEditingController quantity = TextEditingController();
+  TextEditingController duedate = TextEditingController();
 
 
   String id;
@@ -42,7 +42,7 @@ class _AddListState extends State<AddList>{
       backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('What to buy'),
+        title: Text('Reminding you'),
       ),
       body: Container(
         color: Colors.white,
@@ -59,9 +59,9 @@ class _AddListState extends State<AddList>{
                   borderSide: new BorderSide()
                 ),
                 icon: Icon(Icons.queue),
-                labelText: 'Item name'
+                labelText: 'Due Name'
             ),
-            controller: item,
+            controller: bill,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -74,9 +74,9 @@ class _AddListState extends State<AddList>{
                   borderSide: new BorderSide()
                 ),
                 icon: Icon(Icons.attach_money),
-                labelText: 'Pricez'
+                labelText: 'Amount Due'
               ),
-              controller: price
+              controller: amount
             ),
             SizedBox(height: 10.0,),
             SizedBox(height: 10.0,),
@@ -90,9 +90,9 @@ class _AddListState extends State<AddList>{
                   borderSide: new BorderSide()
                 ),
                 icon: Icon(Icons.plus_one),
-                labelText: 'Quantity'
+                labelText: 'Due Date'
               ),
-              controller: quantity,
+              controller: duedate,
             ),
             SizedBox(height: 10.0,),
             Row(
@@ -102,15 +102,15 @@ class _AddListState extends State<AddList>{
                 RaisedButton(
                   color: Colors.green,
                   onPressed: () async{
-                    await DatabaseActions.insertMyAccount({
-                        'item': item.text, 
-                        'price': price.text,
-                        'quantity': quantity.text,
+                    await DatabaseActions.insertReminder({
+                        'bill': bill.text, 
+                        'amount': amount.text,
+                        'dueDate': duedate.text,
                         'uid': DatabaseActions.getCurrentId()
                         });
                         Navigator.pop(context);
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return LandingPage();
+                          return Reminderpage();
                         }));
                   },
                     child: Text(

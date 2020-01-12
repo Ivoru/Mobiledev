@@ -1,29 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/pages/home.dart';
-import 'image_banner.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project/database/database_actions.dart';
+import 'package:project/pages/LandingPage.dart';
+import 'package:project/pages/budget.dart';
+import 'package:project/pages/reminder.dart';
 
 class AddMyExpenses extends StatefulWidget{
-  // AddList({Key key, this.user, this.brew,}) : super(key: key);
-  // // final FirebaseUser user;
-  // // final Prod brew;
+
 
   _AddMyExpensesState createState() => _AddMyExpensesState();
 }
 
 class _AddMyExpensesState extends State<AddMyExpenses>{
 
-  TextEditingController item = TextEditingController();
+  TextEditingController food = TextEditingController();
+  TextEditingController foodprice = TextEditingController();
 
-  TextEditingController price = TextEditingController();
-
-  TextEditingController quantity = TextEditingController();
+  TextEditingController accomodation = TextEditingController();
+  TextEditingController accomodationprice = TextEditingController();
+  
+  TextEditingController fare = TextEditingController();
+  TextEditingController fareprice = TextEditingController();
+  
+  TextEditingController personal = TextEditingController();
+  TextEditingController personalprice = TextEditingController();
 
 
   String id;
-
-  // final db = Firestore.instance;
 
   Future<List<Map<dynamic, dynamic>>> items;
 
@@ -31,8 +35,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
 
      @override
     void initState(){
-      // super.initState();
-      // items = getDocuments();
+   
       
     }
 
@@ -64,7 +67,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.restaurant),
                 labelText: 'Food'
             ),
-            controller: item,
+            controller: food,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -79,7 +82,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: foodprice
             ),
             SizedBox(height: 10.0,),
             TextFormField(
@@ -94,7 +97,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.home),
                 labelText: 'Accomodation'
             ),
-            controller: item,
+            controller: accomodation,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -109,7 +112,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: accomodationprice,
             ),
             SizedBox(height: 10.0,),
             TextFormField(
@@ -124,7 +127,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.control_point),
                 labelText: 'Fare'
             ),
-            controller: item,
+            controller: fare,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -139,7 +142,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: fareprice,
             ),
             SizedBox(height: 10.0,),
             TextFormField(
@@ -154,7 +157,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.control_point),
                 labelText: 'Personal Expenses'
             ),
-            controller: item,
+            controller: personal,
             ),
             SizedBox(height: 10.0),
             TextFormField(
@@ -169,7 +172,7 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                 icon: Icon(Icons.attach_money),
                 labelText: 'Price'
               ),
-              controller: price
+              controller: personalprice
             ),
 
             SizedBox(height: 10.0,),
@@ -177,9 +180,19 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                RaisedButton(
+                  RaisedButton(
                   color: Colors.green,
-                  onPressed: () {
+                  onPressed: () async{
+                    await DatabaseActions.insertBudget({
+                        'bill': food.text, 
+                        'amount': foodprice.text,
+                        'dueDate': accomodation.text,
+                        'uid': DatabaseActions.getCurrentId()
+                        });
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return Budgetpage();
+                        }));
                   },
                   child: Text(
                     'Add', style: TextStyle(backgroundColor: Colors.green,color: Colors.white
@@ -205,78 +218,3 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
     );
   }
 }
-
-//   Future<List<Map<dynamic,dynamic>>> getDocuments() async {
-//     try {
-//       QuerySnapshot querySnapshot = await Firestore.instance.collection(widget.user.uid).getDocuments();
-//       var templist = querySnapshot.documents;
-//       List<Map<dynamic, dynamic>> list = new List();
-
-//       list = templist.map(
-//         (DocumentSnapshot docSnapshot) {
-//           Map<String, dynamic> doc = docSnapshot.data;
-//           doc['uid'] = docSnapshot.documentID;
-//           return doc;
-//         }
-//       ).toList();
-
-//       for ( var i = 0 ; i != list.length ; i++) {
-//         itemList.add(list[i]);
-//       }
-
-//       print(list);
-//       print(itemList);
-//       return list;
-
-//     } catch(e) {
-//       print(e);
-//       return null;
-//     }
-//   }
-
-//   Center userPage(DocumentSnapshot snapshot) {
-//     return Center(child: Column(
-//       children: <Widget>[
-//         Text(snapshot.data['name']),
-//         Text(snapshot.data['age']),
-//         Text(snapshot.data['date']),
-//         Text(snapshot.data['username']),
-//       ],
-//     ));
-//   }
-
-//   Future addItem() async{
-//     try{
-//       Firestore.instance
-//         .collection(widget.user.uid)
-//         .add({
-//           "name" : name.text.toUpperCase(),
-//           "data" : data.text.toUpperCase(),
-//           "userID" : widget.user.toString(),
-//           "group" : group.text.toUpperCase(),
-//           "members" : member.text.toUpperCase()
-//         })
-//       .then((result) => {
-//         Firestore.instance
-//         .collection(widget.user.uid)
-//         .document(result.documentID)
-//         .get()
-//         .then((DocumentSnapshot snaps) async{
-//           print("added");
-//           Navigator.pop(context);
-//           Navigator.push(context, MaterialPageRoute(builder: (context) => Home(user: widget.user, brew: widget.brew)));
-//           setState(() {
-//             super.initState();
-//           });
-//           name.clear();
-//           data.clear();
-//         })
-//           .catchError((err){
-//             print(err);
-//           })
-//       });
-//     }catch(e){
-//       print(e);
-//     }
-//   }
-// }
