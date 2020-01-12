@@ -45,12 +45,12 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
       backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('My Expenses'),
+        title: Text('My Weekly Expenses'),
       ),
       body: Container(
         color: Colors.white,
-        child: Container(
-          child: SingleChildScrollView(
+        // child: Container(
+        //   child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
             SizedBox(height: 10.0,),
@@ -64,8 +64,8 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                   borderRadius: new BorderRadius.circular(15.0),
                   borderSide: new BorderSide()
                 ),
-                icon: Icon(Icons.restaurant),
-                labelText: 'Food'
+                icon: Icon(Icons.add_shopping_cart),
+                labelText: 'Type of Expense'
             ),
             controller: food,
             ),
@@ -79,101 +79,101 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                   borderRadius: new BorderRadius.circular(15.0),
                   borderSide: new BorderSide()
                 ),
-                icon: Icon(Icons.attach_money),
-                labelText: 'Price'
+                icon: Icon(Icons.check_circle),
+                labelText: 'Budget Amount'
               ),
               controller: foodprice
             ),
-            SizedBox(height: 10.0,),
-            TextFormField(
-              cursorColor: Colors.black,
-              cursorRadius: Radius.circular(5.0),
-              cursorWidth: 5.0,
-              decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide()
-                ),
-                icon: Icon(Icons.home),
-                labelText: 'Accomodation'
-            ),
-            controller: accomodation,
-            ),
-            SizedBox(height: 10.0),
-            TextFormField(
-              cursorColor: Colors.black,
-              cursorRadius: Radius.circular(5.0),
-              cursorWidth: 5.0,
-              decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide()
-                ),
-                icon: Icon(Icons.attach_money),
-                labelText: 'Price'
-              ),
-              controller: accomodationprice,
-            ),
-            SizedBox(height: 10.0,),
-            TextFormField(
-              cursorColor: Colors.black,
-              cursorRadius: Radius.circular(5.0),
-              cursorWidth: 5.0,
-              decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide()
-                ),
-                icon: Icon(Icons.control_point),
-                labelText: 'Fare'
-            ),
-            controller: fare,
-            ),
-            SizedBox(height: 10.0),
-            TextFormField(
-              cursorColor: Colors.black,
-              cursorRadius: Radius.circular(5.0),
-              cursorWidth: 5.0,
-              decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide()
-                ),
-                icon: Icon(Icons.attach_money),
-                labelText: 'Price'
-              ),
-              controller: fareprice,
-            ),
-            SizedBox(height: 10.0,),
-            TextFormField(
-              cursorColor: Colors.black,
-              cursorRadius: Radius.circular(5.0),
-              cursorWidth: 5.0,
-              decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide()
-                ),
-                icon: Icon(Icons.control_point),
-                labelText: 'Personal Expenses'
-            ),
-            controller: personal,
-            ),
-            SizedBox(height: 10.0),
-            TextFormField(
-              cursorColor: Colors.black,
-              cursorRadius: Radius.circular(5.0),
-              cursorWidth: 5.0,
-              decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(15.0),
-                  borderSide: new BorderSide()
-                ),
-                icon: Icon(Icons.attach_money),
-                labelText: 'Price'
-              ),
-              controller: personalprice
-            ),
+            // SizedBox(height: 10.0,),
+            // TextFormField(
+            //   cursorColor: Colors.black,
+            //   cursorRadius: Radius.circular(5.0),
+            //   cursorWidth: 5.0,
+            //   decoration: InputDecoration(
+            //     border: new OutlineInputBorder(
+            //       borderRadius: new BorderRadius.circular(15.0),
+            //       borderSide: new BorderSide()
+            //     ),
+            //     icon: Icon(Icons.home),
+            //     labelText: 'Accomodation'
+            // ),
+            // controller: accomodation,
+            // ),
+            // SizedBox(height: 10.0),
+            // TextFormField(
+            //   cursorColor: Colors.black,
+            //   cursorRadius: Radius.circular(5.0),
+            //   cursorWidth: 5.0,
+            //   decoration: InputDecoration(
+            //     border: new OutlineInputBorder(
+            //       borderRadius: new BorderRadius.circular(15.0),
+            //       borderSide: new BorderSide()
+            //     ),
+            //     icon: Icon(Icons.attach_money),
+            //     labelText: 'Price'
+            //   ),
+            //   controller: accomodationprice,
+            // ),
+            // SizedBox(height: 10.0,),
+            // TextFormField(
+            //   cursorColor: Colors.black,
+            //   cursorRadius: Radius.circular(5.0),
+            //   cursorWidth: 5.0,
+            //   decoration: InputDecoration(
+            //     border: new OutlineInputBorder(
+            //       borderRadius: new BorderRadius.circular(15.0),
+            //       borderSide: new BorderSide()
+            //     ),
+            //     icon: Icon(Icons.control_point),
+            //     labelText: 'Fare'
+            // ),
+            // controller: fare,
+            // ),
+            // SizedBox(height: 10.0),
+            // TextFormField(
+            //   cursorColor: Colors.black,
+            //   cursorRadius: Radius.circular(5.0),
+            //   cursorWidth: 5.0,
+            //   decoration: InputDecoration(
+            //     border: new OutlineInputBorder(
+            //       borderRadius: new BorderRadius.circular(15.0),
+            //       borderSide: new BorderSide()
+            //     ),
+            //     icon: Icon(Icons.attach_money),
+            //     labelText: 'Price'
+            //   ),
+            //   controller: fareprice,
+            // ),
+            // SizedBox(height: 10.0,),
+            // TextFormField(
+            //   cursorColor: Colors.black,
+            //   cursorRadius: Radius.circular(5.0),
+            //   cursorWidth: 5.0,
+            //   decoration: InputDecoration(
+            //     border: new OutlineInputBorder(
+            //       borderRadius: new BorderRadius.circular(15.0),
+            //       borderSide: new BorderSide()
+            //     ),
+            //     icon: Icon(Icons.control_point),
+            //     labelText: 'Personal Expenses'
+            // ),
+            // controller: personal,
+            // ),
+            // SizedBox(height: 10.0),
+            // TextFormField(
+            //   cursorColor: Colors.black,
+            //   cursorRadius: Radius.circular(5.0),
+            //   cursorWidth: 5.0,
+            //   decoration: InputDecoration(
+            //     border: new OutlineInputBorder(
+            //       borderRadius: new BorderRadius.circular(15.0),
+            //       borderSide: new BorderSide()
+            //     ),
+            //     icon: Icon(Icons.attach_money),
+            //     labelText: 'Price'
+            //   ),
+            //   controller: personalprice
+            // ),
 
             SizedBox(height: 10.0,),
             Row(
@@ -184,9 +184,14 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
                   color: Colors.green,
                   onPressed: () async{
                     await DatabaseActions.insertBudget({
-                        'bill': food.text, 
-                        'amount': foodprice.text,
-                        'dueDate': accomodation.text,
+                        'food': food.text, 
+                        'foodprice': foodprice.text,
+                        'accomodation': accomodation.text,
+                        'accomodationprice': accomodationprice.text,
+                        'fare': fare.text,
+                        'fareprice': fareprice.text,
+                        'personal': personal.text,
+                        'personalprice': personalprice.text,
                         'uid': DatabaseActions.getCurrentId()
                         });
                         Navigator.pop(context);
@@ -211,8 +216,8 @@ class _AddMyExpensesState extends State<AddMyExpenses>{
               ],
             ),
           ],
-            ),
-          ),
+          //   ),
+          // ),
         ),
       ),
     );

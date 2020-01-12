@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:project/database/database_actions.dart';
 import 'package:project/pages/LandingPage.dart';
 import 'package:project/pages/budget.dart';
-import 'package:project/pages/home.dart';
-import 'image_banner.dart';
 import 'package:flutter/widgets.dart';
 
 class AddExpenses extends StatefulWidget{
@@ -196,12 +194,12 @@ class _AddExpensesState extends State<AddExpenses>{
                     await DatabaseActions.insertBudget({
                         'food': food.text, 
                         'foodprice': foodprice.text,
-                        // 'accomodation': accomodation.text,
-                        // 'accomodationprice': accomodationprice.text,
-                        // 'fare': fare.text,
-                        // 'fareprice': fareprice.text,
-                        // 'personal': personal.text,
-                        // 'personalprice': personalprice.text,
+                        'accomodation': accomodation.text,
+                        'accomodationprice': accomodationprice.text,
+                        'fare': fare.text,
+                        'fareprice': fareprice.text,
+                        'personal': personal.text,
+                        'personalprice': personalprice.text,
                         'uid': DatabaseActions.getCurrentId()
                         });
                         Navigator.pop(context);

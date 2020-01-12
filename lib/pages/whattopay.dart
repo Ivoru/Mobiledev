@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/pages/home.dart';
-import 'image_banner.dart';
 import 'package:flutter/widgets.dart';
 
 class WhatToPay extends StatefulWidget{
-  // AddList({Key key, this.user, this.brew,}) : super(key: key);
-  // // final FirebaseUser user;
-  // // final Prod brew;
+
 
   _WhatToPayState createState() => _WhatToPayState();
 }
@@ -31,9 +27,7 @@ class _WhatToPayState extends State<WhatToPay>{
 
      @override
     void initState(){
-      // super.initState();
-      // items = getDocuments();
-      
+
     }
 
   @override
@@ -101,8 +95,7 @@ class _WhatToPayState extends State<WhatToPay>{
               children: <Widget>[
                 RaisedButton(
                   color: Colors.green,
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Add', style: TextStyle(backgroundColor: Colors.green,color: Colors.white
                   ),
