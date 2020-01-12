@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/database/database_actions.dart';
 import 'package:project/pages/home.dart';
+import 'LandingPage.dart';
 import 'image_banner.dart';
 import 'package:flutter/widgets.dart';
 
@@ -109,11 +110,14 @@ class _AddListState extends State<AddList>{
                         'quantity': quantity.text,
                         'uid': DatabaseActions.getCurrentId()
                         });
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return LandingPage();
+                        }));
                   },
-                  child: Text(
-                    'Add', style: TextStyle(backgroundColor: Colors.green,color: Colors.white
+                    child: Text(
+                    'Add', style: TextStyle(backgroundColor: Colors.green,color: Colors.white),),
                   ),
-                )),
                 SizedBox(width: 50.0,),
                 RaisedButton(
                   color: Colors.red,
