@@ -41,7 +41,7 @@ class DatabaseActions {
               create table reminder(
                 id integer primary key autoincrement,
                 bill text unique not null,
-                amount text not null
+                amount text not null,
                 dueDate text not null
               );
             ''');
@@ -50,7 +50,7 @@ class DatabaseActions {
               create table myBudget(
                 id integer primary key autoincrement,
                 bill text unique not null,
-                amount text not null
+                amount text not null,
                 dueDate text not null
               );
             ''');

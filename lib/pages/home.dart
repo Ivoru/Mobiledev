@@ -32,7 +32,6 @@ class HomePage extends StatelessWidget {
                 margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 120.0),
                 color: Colors.white,
                 child: FutureBuilder(
-                  Text('MY ACCOUNT', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
                           future: DatabaseActions.getMyAccount(),
                           builder: (context, snapshot) {
                             final _myAccounts = snapshot.data;
@@ -40,14 +39,15 @@ class HomePage extends StatelessWidget {
                             if (snapshot.connectionState == ConnectionState.done) {
                               return ListView.builder(
                                 itemBuilder: (context, index) {
-                                  
                                   return ListTile(
                                     leading: Icon(Icons.border_color),
                                     title: Text(_myAccounts[index]['item']),
                                     subtitle: Text(_myAccounts[index]['price']),
                                     trailing: Icon(Icons.more_vert),
-                                    
-                                  );
+                                    onTap: () {
+                                      debugPrint("ListTile Tapped");
+                                    },
+                                   );
                                 }, itemCount: _myAccounts.length,
                               );
                             }
